@@ -15,7 +15,7 @@ ADD preferences /etc/apt/preferences
 #RUN apt-get -y remove exim4-base exim4-config
 RUN apt-get -y update && apt-get -y upgrade && apt-get clean && \
 		apt-get -y install apt-utils lsb-release curl git cron at logrotate rsyslog \
-			unattended-upgrades ssmtp lsof procps sysvinit-core sysvinit-utils \
+			ssmtp lsof procps sysvinit-core sysvinit-utils \
 			initscripts libudev1 udev util-linux && \
 		apt-get clean
 
@@ -33,15 +33,12 @@ RUN apt-get remove --purge --auto-remove systemd && \
 # set to foobar
 # RUN P="foobar" ; echo $P && echo "root:$P" | chpasswd
 
-# unattended upgrades & co
-ADD apt_unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
-ADD apt_periodic /etc/apt/apt.conf.d/02periodic
 
 # stuff for HomeSeer
 RUN apt-get update && apt-get upgrade -y && \
 		apt-get install -y mono-vbnc libmono-system-web4.0.cil libmono-system-design4.0.cil \
 		libmono-system-web-extensions4.0-cil libmono-system-runtime-caching4.0-cil flite chromium \
-		libmono-system-data-datasetextensions4.0-cil libmono-system-xml-linq4.0-cil mono-complete sudo wget vim && \
+		libmono-system-data-datasetextensions4.0-cil libmono-system-xml-linq4.0-cil mono-complete sudo wget vim screen && \
 		apt-get update -y && apt-get clean
 
 # HomeSeer Install
@@ -49,6 +46,7 @@ RUN wget http://homeseer.com/updates3/hs3_linux_3_0_0_312.tar.gz && \
 	tar xvf hs3_linux_3_0_0_312.tar.gz -C /usr/local && rm hs3_linux_3_0_0_312.tar.gz
 
 # HomeSeer Startup
-
+ADD homeseer /etc/init.d/homeseer
+RUN chmod -R 755 /etc/init.d/homeseer && update-rc.d homeseer defaults
 
 CMD ["/bin/bash"]
