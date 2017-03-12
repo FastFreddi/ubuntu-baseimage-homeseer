@@ -23,7 +23,9 @@ RUN wget http://homeseer.com/updates3/hs3_linux_3_0_0_312.tar.gz && \
 	tar xvf hs3_linux_3_0_0_312.tar.gz -C /usr/local && rm hs3_linux_3_0_0_312.tar.gz
 
 # HomeSeer Startup
-ADD homeseer /etc/init.d/homeseer
-RUN chmod -R 755 /etc/init.d/homeseer && update-rc.d homeseer defaults
+ADD runhomeseer.sh /etc/service/homeseer/run
+RUN chmod -R 755 /etc/service/homeseer/run
+ADD stophomeseer.sh /etc/service/homeseer/stop
+RUN chmod -R 755 /etc/service/homeseer/stop
 
-CMD ["/bin/bash"]
+CMD ["/sbin/my_init"]
