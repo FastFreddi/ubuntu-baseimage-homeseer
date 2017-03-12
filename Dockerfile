@@ -1,5 +1,5 @@
 
-FROM debitux/devuan
+FROM j1mr10rd4n/debian-baseimage-docker
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV container docker
