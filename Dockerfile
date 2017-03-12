@@ -6,13 +6,8 @@ ENV container docker
 
 MAINTAINER FastFreddi
 
-# add contrib, non-free and backports repositories
-ADD sources.list /etc/apt/sources.list
-# pin stable repositories
-ADD preferences /etc/apt/preferences
 
 # clean out, update and install some base utilities
-#RUN apt-get -y remove exim4-base exim4-config
 RUN apt-get -y update && apt-get -y upgrade && apt-get clean && \
 		apt-get -y install apt-utils lsb-release curl git cron at logrotate rsyslog \
 			ssmtp lsof procps sysvinit-core sysvinit-utils \
