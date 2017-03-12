@@ -1,5 +1,5 @@
 
-FROM docker pull debitux/devuan
+FROM docker debitux/devuan
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV container docker
