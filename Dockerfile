@@ -16,7 +16,7 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get clean && \
 
 # remove systemd
 RUN cp /usr/share/sysvinit/inittab /etc/inittab
-RUN apt-get remove --purge --auto-remove systemd && \
+RUN apt-get -y remove --purge --auto-remove systemd && \
     echo -e 'Package: systemd\nPin: release *\nPin-Priority: -1' > /etc/apt/preferences.d/systemd && \
     echo -e '\n\nPackage: *systemd*\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
     echo -e '\nPackage: systemd:amd64\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
