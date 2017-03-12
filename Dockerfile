@@ -14,14 +14,6 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get clean && \
 			initscripts libudev1 udev util-linux && \
 		apt-get clean
 
-# remove systemd
-RUN cp /usr/share/sysvinit/inittab /etc/inittab
-RUN apt-get -y remove --purge --auto-remove systemd && \
-    echo -e 'Package: systemd\nPin: release *\nPin-Priority: -1' > /etc/apt/preferences.d/systemd && \
-    echo -e '\n\nPackage: *systemd*\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
-    echo -e '\nPackage: systemd:amd64\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
-    echo -e '\nPackage: systemd:i386\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd
-
 # set random root password
 # RUN P="$(dd if=/dev/random bs=1 count=8 2>/dev/null | base64)" ; echo $P && echo "root:$P" | chpasswd
 # set to foobar
@@ -38,6 +30,14 @@ RUN apt-get update && apt-get upgrade -y && \
 # HomeSeer Install
 RUN wget http://homeseer.com/updates3/hs3_linux_3_0_0_312.tar.gz && \
 	tar xvf hs3_linux_3_0_0_312.tar.gz -C /usr/local && rm hs3_linux_3_0_0_312.tar.gz
+
+# remove systemd
+RUN cp /usr/share/sysvinit/inittab /etc/inittab
+RUN apt-get -y remove --purge --auto-remove systemd && \
+    echo -e 'Package: systemd\nPin: release *\nPin-Priority: -1' > /etc/apt/preferences.d/systemd && \
+    echo -e '\n\nPackage: *systemd*\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
+    echo -e '\nPackage: systemd:amd64\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
+    echo -e '\nPackage: systemd:i386\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd
 
 # HomeSeer Startup
 ADD homeseer /etc/init.d/homeseer
