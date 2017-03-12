@@ -15,8 +15,7 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get clean && \
 		apt-get clean
 
 # remove systemd
-RUN cp /usr/share/sysvinit/inittab /etc/inittab && \
-  sed -i 's:GRUB_CMDLINE_LINUX_DEFAULT="init=/bin/systemd console=hvc0 console=ttyS0":GRUB_CMDLINE_LINUX_DEFAULT="init=/lib/sysvinit/init console=hvc0 console=ttyS0":' /etc/default/grub
+RUN cp /usr/share/sysvinit/inittab /etc/inittab
 RUN apt-get remove --purge --auto-remove systemd && \
     echo -e 'Package: systemd\nPin: release *\nPin-Priority: -1' > /etc/apt/preferences.d/systemd && \
     echo -e '\n\nPackage: *systemd*\nPin: release *\nPin-Priority: -1' >> /etc/apt/preferences.d/systemd && \
