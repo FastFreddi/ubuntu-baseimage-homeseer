@@ -27,5 +27,7 @@ ADD runhomeseer.sh /etc/service/homeseer/run
 RUN chmod -R 755 /etc/service/homeseer/run
 ADD stophomeseer.sh /etc/service/homeseer/stop
 RUN chmod -R 755 /etc/service/homeseer/stop
+ADD stop_homeseer.sh /usr/local/HomeSeer/stop_homeseer.sh
+RUN chmod -R 755 /usr/local/HomeSeer/stop_homeseer.sh
 
 CMD ["/sbin/my_init"]
