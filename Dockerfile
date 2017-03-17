@@ -1,5 +1,5 @@
 
-FROM j1mr10rd4n/debian-baseimage-docker
+FROM docker phusion/baseimage:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV container docker
