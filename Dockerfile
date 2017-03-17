@@ -14,7 +14,7 @@ MAINTAINER FastFreddi
 # stuff for HomeSeer
 RUN apt-get update && apt-get upgrade -y && \
 		apt-get install -y mono-vbnc libmono-system-web4.0.cil libmono-system-design4.0.cil \
-		libmono-system-web-extensions4.0-cil libmono-system-runtime-caching4.0-cil flite chromium curl \
+		libmono-system-web-extensions4.0-cil libmono-system-runtime-caching4.0-cil flite chromium-bsu curl \
 		libmono-system-data-datasetextensions4.0-cil libmono-system-xml-linq4.0-cil mono-complete sudo wget vim screen && \
 		apt-get update -y && apt-get clean
 
