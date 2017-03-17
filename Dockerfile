@@ -1,5 +1,5 @@
 
-FROM docker phusion/baseimage:latest
+FROM phusion/baseimage:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV container docker
