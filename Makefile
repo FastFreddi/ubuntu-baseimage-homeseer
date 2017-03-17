@@ -1,14 +1,14 @@
 
 all:
-	docker build -t fastfreddi/debian-baseimage-homeseer .
+	docker build -t fastfreddi/ubuntu-baseimage-homeseer .
 
 rebuild:
-	docker pull j1mr10rd4n/debian-baseimage-docker
-	docker build --no-cache=true -t fastfreddi/debian-baseimage-homeseer .
+	docker pull phusion/baseimage
+	docker build --no-cache=true -t fastfreddi/ubuntu-baseimage-homeseer .
 
 push:
-	docker tag fastfreddi/debian-sysvinit-homeseer fastfreddi/debian-baseimage-homeseer:$$(date +%Y%m%d) 
-	docker push fastfreddi/debian-baseimage-homeseer
+	docker tag fastfreddi/ubuntu-baseimage-homeseer fastfreddi/ubuntu-baseimage-homeseer:$$(date +%Y%m%d) 
+	docker push fastfreddi/ubuntu-baseimage-homeseer
 
 run:
-	docker run -d -it fastfreddi/debian-baseimage-homeseer
+	docker run -d -it fastfreddi/ubuntu-baseimage-homeseer
