@@ -19,8 +19,8 @@ RUN apt-get update && apt-get upgrade -y && \
 		apt-get update -y && apt-get clean
 
 # HomeSeer Install
-RUN wget http://homeseer.com/updates3/hs3_linux_3_0_0_312.tar.gz && \
-	tar xvf hs3_linux_3_0_0_312.tar.gz -C /usr/local && rm hs3_linux_3_0_0_312.tar.gz
+RUN wget http://homeseer.com/updates3/hs3_linux_3_0_0_313.tar.gz && \
+	tar xvf hs3_linux_3_0_0_313.tar.gz -C /usr/local && rm hs3_linux_3_0_0_313.tar.gz
 
 # HomeSeer Startup
 ADD runhomeseer.sh /etc/service/homeseer/run
