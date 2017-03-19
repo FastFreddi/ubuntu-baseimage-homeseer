@@ -1,2 +1,3 @@
 #!/bin/bash
-/usr/bin/mono /usr/local/HomeSeer/HSConsole.exe --log
+cd /usr/local/HomeSeer
+./go
