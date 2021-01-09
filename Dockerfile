@@ -13,14 +13,13 @@ MAINTAINER FastFreddi
 
 # stuff for HomeSeer
 RUN apt-get update && apt-get upgrade -y && \
-		apt-get install -y mono-vbnc libmono-system-web4.0.cil libmono-system-design4.0.cil \
-		libmono-system-web-extensions4.0-cil libmono-system-runtime-caching4.0-cil flite chromium-bsu curl \
-		libmono-system-data-datasetextensions4.0-cil libmono-system-xml-linq4.0-cil mono-complete sudo wget vim screen && \
+		apt-get install -y mono-devel mono-vbnc flite chromium-browser aha ffmpeg alsa-base alsa-utils curl sudo wget vim screen && \
+ 		apt-get -y remove brltty && \
 		apt-get update -y && apt-get clean
 
 # HomeSeer Install
-RUN wget http://homeseer.com/updates3/hs3_linux_3_0_0_318.tar.gz && \
-	tar xvf hs3_linux_3_0_0_318.tar.gz -C /usr/local && rm hs3_linux_3_0_0_318.tar.gz
+RUN wget https://homeseer.com/updates4/linux_4_1_10_0.tar.gz -O homeseer.tar.gz && \
+ 	tar xvf xvzf homeseer.tar.gz -C /usr/local && rm homeseer.tar.gz
 
 # HomeSeer Startup
 ADD runhomeseer.sh /etc/service/homeseer/run
