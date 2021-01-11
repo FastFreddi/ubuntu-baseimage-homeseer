@@ -30,6 +30,8 @@ ADD hs_stop.sh /usr/local/HomeSeer/hs_stop.sh
 RUN chmod -R 755 /usr/local/HomeSeer/hs_stop.sh
 ADD shutdown_controller.sh /usr/local/HomeSeer/shutdown_controller.sh
 RUN chmod -R 755 /usr/local/HomeSeer/shutdown_controller.sh
+ADD upgrade /upgrade
+RUN chmod -R 755 /upgrade
 
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
