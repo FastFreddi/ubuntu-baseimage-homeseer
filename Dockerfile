@@ -21,12 +21,17 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN wget https://homeseer.com/updates4/linux_4_1_10_0.tar.gz -O homeseer.tar.gz && \
  	tar xvzf homeseer.tar.gz -C /usr/local && rm homeseer.tar.gz
 
-# HomeSeer Startup
-ADD runhomeseer.sh /etc/service/homeseer/run
+# HomeSeer Startup / Shutdown
+ADD runit_run_hs.sh /etc/service/homeseer/run
 RUN chmod -R 755 /etc/service/homeseer/run
-ADD stophomeseer.sh /etc/service/homeseer/stop
-RUN chmod -R 755 /etc/service/homeseer/stop
-ADD stop_homeseer.sh /usr/local/HomeSeer/stop_homeseer.sh
-RUN chmod -R 755 /usr/local/HomeSeer/stop_homeseer.sh
+ADD runit_stop_hs.sh /etc/service/homeseer/control/t
+RUN chmod -R 755 /etc/service/homeseer/control/t
+ADD hs_stop.sh /usr/local/HomeSeer/hs_stop.sh
+RUN chmod -R 755 /usr/local/HomeSeer/hs_stop.sh
+ADD shutdown_controller.sh /usr/local/HomeSeer/shutdown_controller.sh
+RUN chmod -R 755 /usr/local/HomeSeer/shutdown_controller.sh
+
+# Cleanup
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["/sbin/my_init"]
