@@ -1,0 +1,4 @@
+sv stop homeseer
+sudo wget https://homeseer.com/updates4/linux_$1.tar.gz -O homeseer.tar.gz
+sudo tar xvzf homeseer.tar.gz -C /usr/local && rm homeseer.tar.gz
+sv start homeseer
