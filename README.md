@@ -1,5 +1,5 @@
-# ubuntu-baseimage-homeseer
-Docker image based on phusion/baseimage for HomeSeer
+# HomeSeer container using Ubuntu Baseimage
+Docker image based on phusion/baseimage for HomeSeer.  
 This is usefull for hosts running Docker without systemd such as Synology. 
 
 # Instructions for Synology 
