@@ -75,5 +75,5 @@ Then in task settings, type: docker stop Syno-HomeSeer
 ### To access the web interface the first time, type in your browser you IP with /register.html to get things going:
 
 ```
-http://192.168.1.6/register.html
+http://1.1.1.6/register.html
 ```
