@@ -58,21 +58,21 @@ sudo docker exec -i Syno-HomeSeer bash upgrade 4_1_10_0
 ## Starting and Stopping Container Automatically with DiskStation Reboot
 #### Then open Task Scheduler in Synology GUI.
 
-##### Create a triggered task called: HomeSeer Start
+#### Create a triggered task called: HomeSeer Start
 Select user “root”
 
 Choose event: Boot-up
 
 Then in task settings, type: docker start Syno-HomeSeer
 
-##### Create a triggered task called: HomeSeer Stop
+#### Create a triggered task called: HomeSeer Stop
 Select user “root”
 
 Choose event: Shutdown
 
 Then in task settings, type: docker stop Syno-HomeSeer
 
-##### Enable both tasks and save settings.
+#### Enable both tasks and save settings.
 
 
 ## Accessing HomeSeer Web Interface the First Time
