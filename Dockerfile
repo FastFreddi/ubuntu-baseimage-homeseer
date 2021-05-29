@@ -1,5 +1,6 @@
 
 FROM phusion/baseimage:master-arm64
+COPY qemu-arm-static /usr/bin
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV container docker
