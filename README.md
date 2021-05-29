@@ -1,4 +1,6 @@
-# HomeSeer container using Ubuntu Baseimage
+# This is an experimental build! I do not have an ARM System to test
+
+# HomeSeer container using Ubuntu Baseimage ARM
 Docker image based on phusion/baseimage for HomeSeer.  
 This is usefull for hosts running Docker without systemd such as Synology. 
 
