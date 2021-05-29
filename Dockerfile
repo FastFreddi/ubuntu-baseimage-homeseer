@@ -12,10 +12,11 @@ MAINTAINER FastFreddi
 # RUN P="foobar" ; echo $P && echo "root:$P" | chpasswd
 
 # stuff for HomeSeer
-RUN apt-get update && apt-get upgrade -y && \
-		apt-get install -y mono-devel mono-vbnc flite chromium-browser aha ffmpeg alsa-base alsa-utils curl sudo wget vim screen && \
- 		apt-get -y remove brltty && \
-		apt-get update -y && apt-get clean
+RUN apt-get update && apt-get upgrade -y 
+RUN apt-get install -y mono-devel mono-vbnc flite chromium-browser aha ffmpeg alsa-base alsa-utils curl sudo wget vim screen
+RUN apt-get -y remove brltty
+RUN apt-get update -y
+RUN apt-get clean
 
 # HomeSeer Install
 RUN wget https://homeseer.com/updates4/linux_4_1_16_0.tar.gz -O homeseer.tar.gz && \
