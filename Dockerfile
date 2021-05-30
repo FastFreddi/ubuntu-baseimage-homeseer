@@ -15,7 +15,7 @@ MAINTAINER FastFreddi
 # stuff for HomeSeer
 RUN apt-get update && apt-get upgrade -y && \
 		apt-get install -y mono-devel mono-vbnc flite chromium-browser aha ffmpeg alsa-base alsa-utils curl sudo wget vim screen && \
- 	apt-get -y remove brltty && \
+ 		apt-get -y remove brltty && \
 		apt-get update -y && apt-get clean
 
 # HomeSeer Install
