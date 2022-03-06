@@ -7,11 +7,6 @@ ENV container docker
 
 MAINTAINER FastFreddi
 
-# set random root password
-# RUN P="$(dd if=/dev/random bs=1 count=8 2>/dev/null | base64)" ; echo $P && echo "root:$P" | chpasswd
-# set to foobar
-# RUN P="foobar" ; echo $P && echo "root:$P" | chpasswd
-
 # stuff for HomeSeer
 RUN apt-get update && apt-get upgrade -y && \
 		apt-get install -y mono-devel mono-vbnc flite chromium-browser aha ffmpeg alsa-base alsa-utils curl sudo wget vim screen && \
