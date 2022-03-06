@@ -19,7 +19,7 @@ RUN apt-get update && apt-get upgrade -y && \
 		apt-get update -y && apt-get clean
 
 # HomeSeer Install
-RUN wget https://homeseer.com/updates4/linux_4_1_16_0.tar.gz -O homeseer.tar.gz && \
+RUN wget https://homeseer.com/updates4/linux_4_2_8_0.tar.gz -O homeseer.tar.gz && \
  	tar xvzf homeseer.tar.gz -C /usr/local && rm homeseer.tar.gz
 
 # HomeSeer Startup / Shutdown
